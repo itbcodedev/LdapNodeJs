@@ -1,0 +1,8 @@
+CN=sawangpong,OU=mmc,OU=Project,DC=mrta,DC=co,DC=th
+
+
+ldapsearch -h 192.168.3.250
+-D CN="sawangpong,OU=mmc,OU=Project,DC=mrta,DC=co,DC=th"
+-b DC=mrta,DC=co,DC=th
+-w 1234P@ssw0rd
+objectClass=*
