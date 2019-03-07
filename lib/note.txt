@@ -1,8 +1,74 @@
 CN=sawangpong,OU=mmc,OU=Project,DC=mrta,DC=co,DC=th
 
 
-ldapsearch -h 192.168.3.250
--D CN="sawangpong,OU=mmc,OU=Project,DC=mrta,DC=co,DC=th"
--b DC=mrta,DC=co,DC=th
--w 1234P@ssw0rd
+ldapsearch -h 192.168.3.250 \
+-D CN="sawangpong,OU=mmc,OU=Project,DC=mrta,DC=co,DC=th" \
+-b DC=mrta,DC=co,DC=th \
+-w 1234P@ssw0rd \
 objectClass=*
+
+
+$ ldapsearch -h 192.168.3.250 \
+-D CN="sawangpong,OU=mmc,OU=Project,DC=mrta,DC=co,DC=th" \
+-b OU=mmc,OU=Project,DC=mrta,DC=co,DC=th \
+-w 1234P@ssw0rd objectClass=*   >  result.txt
+
+
+$ ldapsearch -h 192.168.3.250 -D CN="sawangpong,OU=mmc,OU=Project,DC=mrta,DC=co,DC=th" -b OU=mmc,OU=Project,DC=mrta,DC=co,DC=th -w 1234P@ssw0rd objectClass=group
+
+# extended LDIF
+#
+# LDAPv3
+# base <OU=mmc,OU=Project,DC=mrta,DC=co,DC=th> with scope subtree
+# filter: objectClass=group
+# requesting: ALL
+#
+
+# mmc_user, mmc, Project, mrta.co.th
+dn: CN=mmc_user,OU=mmc,OU=Project,DC=mrta,DC=co,DC=th
+objectClass: top
+objectClass: group
+cn: mmc_user
+member: CN=mmc user,OU=mmc,OU=Project,DC=mrta,DC=co,DC=th
+distinguishedName: CN=mmc_user,OU=mmc,OU=Project,DC=mrta,DC=co,DC=th
+instanceType: 4
+whenCreated: 20190129021440.0Z
+whenChanged: 20190129022142.0Z
+uSNCreated: 113484964
+uSNChanged: 113486491
+name: mmc_user
+objectGUID:: wpHhlRzd80SwCi4t00ivMg==
+objectSid:: AQUAAAAAAAUVAAAAcSd4bx7ry+5Xddlo3D0AAA==
+sAMAccountName: mmc_user
+sAMAccountType: 268435456
+groupType: -2147483646
+objectCategory: CN=Group,CN=Schema,CN=Configuration,DC=mrta,DC=co,DC=th
+dSCorePropagationData: 16010101000000.0Z
+
+# mmc_admin, mmc, Project, mrta.co.th
+dn: CN=mmc_admin,OU=mmc,OU=Project,DC=mrta,DC=co,DC=th
+objectClass: top
+objectClass: group
+cn: mmc_admin
+member: CN=sawangpong,OU=mmc,OU=Project,DC=mrta,DC=co,DC=th
+distinguishedName: CN=mmc_admin,OU=mmc,OU=Project,DC=mrta,DC=co,DC=th
+instanceType: 4
+whenCreated: 20190129021449.0Z
+whenChanged: 20190129022127.0Z
+uSNCreated: 113484977
+uSNChanged: 113486471
+name: mmc_admin
+objectGUID:: xigoWosHBkqTvKrGipfDEA==
+objectSid:: AQUAAAAAAAUVAAAAcSd4bx7ry+5Xddlo3T0AAA==
+sAMAccountName: mmc_admin
+sAMAccountType: 268435456
+groupType: -2147483646
+objectCategory: CN=Group,CN=Schema,CN=Configuration,DC=mrta,DC=co,DC=th
+dSCorePropagationData: 16010101000000.0Z
+
+# search result
+search: 2
+result: 0 Success
+
+# numResponses: 3
+# numEntries: 2
